@@ -10,6 +10,19 @@ import generalRoutes from './routes/general.js';
 import managementRoutes from './routes/management.js';
 import salesRoutes from './routes/sales.js';
 
+// DATA IMPORTS
+import User from './models/User.js';
+import Product from './models/Product.js';
+import ProductStat from './models/ProductStat.js';
+import Transaction from './models/Transaction.js';
+import OverallStat from './models/OverallStat.js';
+import { 
+    dataUser, 
+    dataProduct, 
+    dataProductStat, 
+    dataTransaction, 
+    dataOverallStat,
+} from "./data/index.js";
 
 // CONFIGURATION
 dotenv.config();
@@ -35,5 +48,11 @@ mongoose
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }).then(() => {
-        app.listen(PORT, () => HTMLFormControlsCollection.log(`Server Port: ${PORT}`))
+        app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+        // Add data only once to prevent duplication of data
+        // Product.insertMany(dataProduct);
+        // ProductStat.insertMany(dataProductStat);
+        // Transaction.insertMany(dataTransaction);
+        // User.insertMany(dataUser)
+        // OverallStat.insertMany(dataOverallStat);
     }).catch((error) => console.log(`${error} did not connect`));
