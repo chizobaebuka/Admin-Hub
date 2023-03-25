@@ -44,7 +44,7 @@ const OverViewChart = ({ isDashboard = false, view }) => {
         );
         
         return [[totalSalesLine], [totalUnitsLine]]
-        
+
     }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
 
     if (!data || isLoading) return "Loading...";
@@ -101,8 +101,8 @@ const OverViewChart = ({ isDashboard = false, view }) => {
             axisRight={null}
             axisBottom={{
                 format: (v) => {
-                if (isDashboard) return v.slice(0, 3);
-                return v;
+                    if (isDashboard) return v.slice(0, 3);
+                    return v;
                 },
                 orient: "bottom",
                 tickSize: 5,
